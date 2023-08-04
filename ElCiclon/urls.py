@@ -17,6 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from ElCiclon.views import saludar_con_fecha
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("saludo-hoy/", saludar_con_fecha),
 ]
