@@ -17,10 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from ElCiclon.views import saludar_con_fecha
+from ElCiclon.views import saludar_con_fecha, saludar_con_html
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("matadores/", include("Cuervo.urls")),
+    path("control/", include("Cuervo.urls")),
+    #secundarias
     path("saludo-hoy/", saludar_con_fecha),
+    path("saludo-html/", saludar_con_html),
 ]

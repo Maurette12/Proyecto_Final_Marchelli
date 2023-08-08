@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <head>
+    <title>San Lorenzo de Almagro</title>
+    <meta name="description" content="Our first page">
+    <meta name="keywords" content="html tutorial template">
+  </head>
+  <body>
+    <h1>
+      Bienvenidos
+    </h1>
+
+    <h3>Autoridades: </h3>
+    <ul>
+    {% for autoridad in autoridades %}
+      <li>
+        {{ autoridad.nombre}}, {{ autoridad.cargo}}
+      </li>
+    {% endfor %}
+    </ul>
+
+  </body>
+</html>
