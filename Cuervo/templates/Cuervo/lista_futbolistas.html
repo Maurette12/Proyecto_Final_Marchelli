@@ -1,23 +1,16 @@
-<!doctype html>
-<html>
-  <head>
-    <title>San Lorenzo de Almagro</title>
-    <meta name="description" content="Our first page">
-    <meta name="keywords" content="html tutorial template">
-  </head>
-  <body>
-    <h1>
-      Bienvenidos
-    </h1>
+{% extends "templates/base.html" %}
 
-    <h3>Futbolistas Titulares</h3>
-    <ul>
-    {% for futbolista in futbolistas %}
-      <li>
-        {{ futbolista.apellido}}, {{ futbolista.nombre}}
-      </li>
-    {% endfor %}
-    </ul>
+{% block titulo %}
+Lista de Futbolistas
+{% endblock titulo %}
 
-  </body>
-</html>
+{% block contenido %}
+<h3>Futbolistas Titulares</h3>
+<ul>
+{% for futbolista in futbolistas %}
+  <li>
+    {{ futbolista.apellido}}, {{ futbolista.nombre}}
+  </li>
+{% endfor %}
+</ul>
+{% endblock contenido %}

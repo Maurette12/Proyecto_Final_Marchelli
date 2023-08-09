@@ -6,6 +6,6 @@ from Cuervo.views import listar_futbolistas, listar_autoridades
 
 # Son las URLS especificas de la app
 urlpatterns = [
-    path("matadores/", listar_futbolistas),
-    path("autoridades/", listar_autoridades)
+    path("futbolistas/", listar_futbolistas, name="lista_futbolistas"),
+    path("autoridades/", listar_autoridades, name="lista_autoridades")
 ]
