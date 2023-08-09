@@ -1,14 +1,11 @@
 from django.shortcuts import render
 
+from Cuervo.models import Futbolista, Socio, Autoridad, Articulo
+
 # Create your views here.
 def listar_futbolistas(request):
     contexto = {
-        "futbolistas": [
-            {"nombre": "Augusto", "apellido": "Batalla"},
-            {"nombre": "Nahuel", "apellido": "Barrios"},
-            {"nombre": "Adam", "apellido": "Bareiro"},
-            {"nombre": "Ivan", "apellido": "Leguizamon"},
-        ]
+        "futbolistas": Futbolista.objects.all(),
     }
     http_response = render(
         request=request,
@@ -21,15 +18,23 @@ def listar_futbolistas(request):
 def listar_autoridades(request):
     # Data de pruebas, más adelante la llenaremos con nuestros cursos de verdad
     contexto = {
-        "autoridades": [
-            {"nombre": "Carlos Horacio Arreceygor", "cargo": "Presidente"},
-            {"nombre": "Miguel Marcelo Mastrosimone", "cargo": "Vicepresidente"},
-            {"nombre": "Sergio Gabriel Costantino", "cargo": "Secretario"},
-        ]
+        "autoridades": Autoridad.objects.all(),
     }
     http_response = render(
         request=request,
         template_name='Cuervo/lista_autoridades.html',
+        context=contexto,
+    )
+    return http_response
+
+
+def listar_socios(request):
+    contexto = {
+        "socios": Socio.objects.all(),
+    }
+    http_response = render(
+        request=request,
+        template_name='Cuervo/lista_socios.html',
         context=contexto,
     )
     return http_response

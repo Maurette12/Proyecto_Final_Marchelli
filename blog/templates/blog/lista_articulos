@@ -1,0 +1,16 @@
+{% extends "templates/base.html" %}
+
+{% block titulo %}
+Lista Articulos
+{% endblock titulo %}
+
+{% block contenido %}
+<h3>Noticias </h3>
+<ul>
+{% for articulo in articulos %}
+  <li>
+    {{ articulo.titulo}}, {{ articulo.subtitulo}}, {{ articulo.cuerpo}}, {{ articulo.autor}}, {{ articulo.fecha}}
+  </li>
+{% endfor %}
+</ul>
+{% endblock contenido %}

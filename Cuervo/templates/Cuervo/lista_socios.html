@@ -1,15 +1,15 @@
 {% extends "templates/base.html" %}
 
 {% block titulo %}
-Lista de Futbolistas
+Lista de Socios
 {% endblock titulo %}
 
 {% block contenido %}
-<h3>Futbolistas Titulares:</h3>
+<h3>Socios </h3>
 <ul>
-{% for futbolista in futbolistas %}
+{% for socio in socios %}
   <li>
-    {{ futbolista.apellido}}, {{ futbolista.nombre}}
+    {{ socio.nombre}}, {{ socio.apellido}}, {{ socio.socio_n}}
   </li>
 {% endfor %}
 </ul>
