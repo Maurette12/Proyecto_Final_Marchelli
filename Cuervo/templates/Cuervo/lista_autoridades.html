@@ -6,11 +6,22 @@ Lista de Autoridades
 
 {% block contenido %}
 <h3>Autoridades: </h3>
-<ul>
-{% for autoridad in autoridades %}
-  <li>
-    {{ autoridad.nombre}}, {{ autoridad.cargo}}
-  </li>
-{% endfor %}
-</ul>
+<table class="table">
+  <tbody>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Cargo</th>
+    </tr>
+    {% for autoridad in autoridades %}
+    <tr>
+      <td>{{ autoridad.id }}</td>
+      <td>{{ autoridad.nombre }}</td>
+      <td>{{ autoridad.apellido }}</td>
+      <td>{{ autoridad.cargo }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 {% endblock contenido %}

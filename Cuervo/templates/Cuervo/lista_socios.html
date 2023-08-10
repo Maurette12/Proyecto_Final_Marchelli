@@ -6,11 +6,26 @@ Lista de Socios
 
 {% block contenido %}
 <h3>Socios </h3>
-<ul>
-{% for socio in socios %}
-  <li>
-    {{ socio.nombre}}, {{ socio.apellido}}, {{ socio.socio_n}}
-  </li>
-{% endfor %}
-</ul>
+<table class="table">
+  <tbody>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>DNI</th>
+      <th>Email</th>
+      <th>Socio</th>
+    </tr>
+    {% for socio in socios %}
+    <tr>
+      <td>{{ socio.id }}</td>
+      <td>{{ socio.nombre }}</td>
+      <td>{{ socio.apellido }}</td>
+      <td>{{ socio.dni }}</td>
+      <td>{{ socio.email }}</td>
+      <td>{{ socio.socio_n }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 {% endblock contenido %}

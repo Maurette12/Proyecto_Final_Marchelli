@@ -41,3 +41,46 @@ def crear_articulo(request):
         context={'formulario': formulario}
     )
     return http_response
+
+
+def eliminar_articulo(request, id):
+    # obtienes el curso de la base de datos
+    articulo = Articulo.objects.get(id=id)
+    if request.method == "POST":
+        # borra el curso de la base de datos
+        articulo.delete()
+        # redireccionamos a la URL exitosa
+        url_exitosa = reverse("lista_articulos")
+        return redirect(url_exitosa)
+
+
+def editar_articulo(request, id):
+    articulo = Articulo.objects.get(id=id)
+    if request.method == "POST":
+        formulario = ArticuloFormulario(request.POST)
+
+        if formulario.is_valid():
+            data = formulario.cleaned_data
+            articulo.titulo = data['titulo']
+            articulo.subtitulo = data['titulo']
+            articulo.cuerpo = data['cuerpo']
+            articulo.autor = data['autor']
+            articulo.fecha = data['fecha']
+            articulo.save()
+
+            url_exitosa = reverse('lista_articulos')
+            return redirect(url_exitosa)
+    else:  # GET
+        inicial = {
+            'titulo': articulo.titulo,
+            'subtitulo': articulo.subtitulo,
+            'cuerpo': articulo.cuerpo,
+            'autor': articulo.autor,
+            'fecha': articulo.fecha,
+        }
+        formulario = ArticuloFormulario(initial=inicial)
+    return render(
+        request=request,
+        template_name='blog/formulario_articulo.html',
+        context={'formulario': formulario},
+    )

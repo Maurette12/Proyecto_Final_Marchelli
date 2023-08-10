@@ -27,6 +27,16 @@ Lista Articulos
       <td>{{ articulo.cuerpo }}</td>
       <td>{{ articulo.autor }}</td>
       <td>{{ articulo.fecha }}</td>
+      <td>
+        <a class="btn btn-link" href="{% url "editar_articulo" articulo.id %}"> editar</a>
+      </td>
+      <td>
+        <form action="{% url "eliminar_articulo" articulo.id %}" method="post">
+          {% csrf_token %}
+          <input type="submit" class="btn btn-link" value="eliminar"/>
+        </form>
+      </td>
+      <td></td>
     </tr>
     {% endfor %}
   </tbody>
