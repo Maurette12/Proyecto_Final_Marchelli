@@ -9,7 +9,7 @@ def listar_articulos(request):
     }
     http_response = render(
         request=request,
-        template_name='blog/lista_articulos.html',
+        template_name='blog\lista_articulos.html',
         context=contexto,
     )
     return http_response

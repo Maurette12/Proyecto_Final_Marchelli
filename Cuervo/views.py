@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from Cuervo.models import Futbolista, Socio, Autoridad, Articulo
+from Cuervo.models import Futbolista, Socio, Autoridad
 
 # Create your views here.
 def listar_futbolistas(request):
