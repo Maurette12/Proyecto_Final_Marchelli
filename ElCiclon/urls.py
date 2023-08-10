@@ -23,6 +23,7 @@ urlpatterns = [
     path("", inicio, name="inicio"),
     path('admin/', admin.site.urls),
     path("control/", include("Cuervo.urls")),
+    path("blog/", include("blog.urls")),
     #secundarias
     path("saludo-hoy/", saludar_con_fecha),
     path("saludo-html/", saludar_con_html),

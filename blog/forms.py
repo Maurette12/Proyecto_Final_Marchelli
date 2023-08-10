@@ -6,4 +6,4 @@ class ArticuloFormulario(forms.Form):
     subtitulo = forms.CharField(required=True, max_length=256)
     cuerpo = forms.CharField(required=True, max_length=256)
     autor = forms.CharField(required=True, max_length=256)
-    fecha = forms.DateField(required=True, null=True)
+    fecha = forms.DateField(required=True)

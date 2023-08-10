@@ -9,7 +9,7 @@ def listar_articulos(request):
     }
     http_response = render(
         request=request,
-        template_name='blog\lista_articulos.html',
+        template_name="blog/lista_articulos.html",
         context=contexto,
     )
     return http_response
@@ -27,11 +27,11 @@ def crear_articulo(request):
             cuerpo = data["cuerpo"]
             autor = data["autor"]
             fecha = data["fecha"]
-            curso = Articulo(titulo=titulo, subtitulo=subtitulo, cuerpo=cuerpo, autor=autor, fecha=fecha)
-            curso.save()
+            articulo = Articulo(titulo=titulo, subtitulo=subtitulo, cuerpo=cuerpo, autor=autor, fecha=fecha)
+            articulo.save()
 
             
-            url_exitosa = reverse('lista_cursos') 
+            url_exitosa = reverse('lista_articulos') 
             return redirect(url_exitosa)
     else:  # GET
         formulario = ArticuloFormulario()

@@ -6,11 +6,30 @@ Lista Articulos
 
 {% block contenido %}
 <h3>Noticias </h3>
-<ul>
-{% for articulo in articulos %}
-  <li>
-    {{ articulo.titulo}}, {{ articulo.subtitulo}}, {{ articulo.cuerpo}}, {{ articulo.autor}}, {{ articulo.fecha}}
-  </li>
-{% endfor %}
-</ul>
+<a href="{% url 'lista_articulos' %}">Ver todos</a>
+<a href="{% url 'crear_articulo' %}">Crear articulo</a>
+
+<table class="table">
+  <tbody>
+    <tr>
+      <th>ID</th>
+      <th>Titulo</th>
+      <th>Subtitulo</th>
+      <th>Cuerpo</th>
+      <th>Autor</th>
+      <th>Fecha</th>
+    </tr>
+    {% for articulo in articulos %}
+    <tr>
+      <td>{{ articulo.id }}</td>
+      <td>{{ articulo.titulo }}</td>
+      <td>{{ articulo.subtitulo }}</td>
+      <td>{{ articulo.cuerpo }}</td>
+      <td>{{ articulo.autor }}</td>
+      <td>{{ articulo.fecha }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
 {% endblock contenido %}
