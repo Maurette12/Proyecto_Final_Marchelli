@@ -1,4 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse, reverse_lazy
+
+from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
+from django.db.models import Q
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from Cuervo.models import Futbolista, Socio, Autoridad
 
@@ -35,6 +41,16 @@ def listar_socios(request):
     http_response = render(
         request=request,
         template_name='Cuervo/lista_socios.html',
+        context=contexto,
+    )
+    return http_response
+
+
+def acerca_de_mi(request):
+    contexto = {}
+    http_response = render(
+        request=request,
+        template_name='Cuervo/acerca_de_mi.html',
         context=contexto,
     )
     return http_response

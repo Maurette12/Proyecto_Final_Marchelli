@@ -1,0 +1,27 @@
+{% extends "templates/base.html" %}
+
+{% block titulo %}
+Acerca de mi
+{% endblock titulo %}
+
+{% block contenido %}
+<h2>Quien soy?</h2>
+<br></br>
+<h1>Mauro Marchelli</h1>
+
+<p>Esta es mi primer pagina creada en Django para el proyecto final
+     de <strong>Coderhouse</strong>, se trata de un blog de mi equipo favorito 
+     San Lorenzo de Almagro.
+     Tengo 32 años y mi objetivo es seguir nutriendome de cursos para saber mas!
+</p>
+
+<a data-bs-toggle="collapse" href="#mas" role="button" aria-expanded="false" aria-controls="collapseExample">
+               Leer mas
+</a>
+<div class="collapse" id="mas">
+  <div class="card card-body">
+     Soy una persona que le gusta aprender de todo, el ultimo curso que hice fue sobre reparacion de pc.
+     Me gusta todo lo que tenga que ver con arreglar y conocer su funcionamiento.
+  </div>
+</div>
+{% endblock contenido %}

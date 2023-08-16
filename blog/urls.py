@@ -2,7 +2,7 @@
 from django.urls import path
 
 from blog.views import crear_articulo, listar_articulos, eliminar_articulo, editar_articulo
-
+from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
     path("crear-articulo/", crear_articulo, name="crear_articulo"),

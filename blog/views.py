@@ -1,7 +1,13 @@
 from django.shortcuts import render, redirect
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from blog.forms import ArticuloFormulario
 from blog.models import Articulo
+
+from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
+from django.db.models import Q
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 def listar_articulos(request):
     contexto = {
@@ -16,6 +22,7 @@ def listar_articulos(request):
 
 
 # Create your views here.
+@login_required
 def crear_articulo(request):
     if request.method == "POST":
         formulario = ArticuloFormulario(request.POST)
@@ -42,7 +49,7 @@ def crear_articulo(request):
     )
     return http_response
 
-
+@login_required
 def eliminar_articulo(request, id):
     # obtienes el curso de la base de datos
     articulo = Articulo.objects.get(id=id)
@@ -53,7 +60,7 @@ def eliminar_articulo(request, id):
         url_exitosa = reverse("lista_articulos")
         return redirect(url_exitosa)
 
-
+@login_required
 def editar_articulo(request, id):
     articulo = Articulo.objects.get(id=id)
     if request.method == "POST":
