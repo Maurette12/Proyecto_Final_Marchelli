@@ -1,3 +1,23 @@
+{% extends 'templates/base.html' %}
+
+{% block contenido %}
+<h1>Lista de Artículos</h1>
+<ul>
+    {% for articulo in articulos %}
+    <li><a href="{% url 'detalle_articulo' articulo.id %}">{{ articulo.titulo }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock contenido %}
+
+
+
+
+
+
+
+
+
+
 {% extends "templates/base.html" %}
 
 {% block titulo %}
@@ -15,16 +35,19 @@ Lista Articulos
       <th>ID</th>
       <th>Titulo</th>
       <th>Subtitulo</th>
+      <th>Cuerpo</th>
+      <th>Autor</th>
+      <th>Fecha</th>
     </tr>
     {% for articulo in articulos %}
     <tr>
       <td>{{ articulo.id }}</td>
       <td>{{ articulo.titulo }}</td>
       <td>{{ articulo.subtitulo }}</td>
+      <td>{{ articulo.cuerpo }}</td>
+      <td>{{ articulo.autor }}</td>
+      <td>{{ articulo.fecha }}</td>
       <td>{{ articulo.creador }}</td>
-      <td>
-        <a class="btn btn-link" href="{% url "detalle_articulo" articulo.id %}"> DETALLES</a>
-      </td>
       <td>
         <a class="btn btn-link" href="{% url "editar_articulo" articulo.id %}"> editar</a>
       </td>

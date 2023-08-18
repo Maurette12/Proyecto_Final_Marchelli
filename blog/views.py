@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse, reverse_lazy
 from blog.forms import ArticuloFormulario
 from blog.models import Articulo
@@ -19,6 +19,13 @@ def listar_articulos(request):
         context=contexto,
     )
     return http_response
+
+
+
+def detalle_articulo(request, articulo_id):
+    articulo = get_object_or_404(Articulo, pk=articulo_id)
+    return render(request, 'blog/detalle_articulo.html', {'articulo': articulo})
+
 
 
 # Create your views here.
